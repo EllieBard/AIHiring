@@ -1,15 +1,23 @@
 <!DOCTYPE html>
 <head>
+    <link rel="stylesheet" href="styleSheet.css">
 </head>
 <body>
-    <h1>hi</h1>
+    <div class="container">
+        <div id = "button-div">
+            <img src="ezgif.com-animated-gif-maker.gif" alt="Press space to start">
+        </div>
+    </div>
     <script>
+        let myWindow;
+        var executed = 0;
         function openWin() {
-          myWindow = window.open("https://www.w3schools.com","popup","width=1000,height=640");
+          myWindow = window.open("page.html","popup","width=1000,height=600");
         }
-         window.addEventListener("keyup", event =>{
-            if(event.code === 'Space'){
+        window.addEventListener("keyup", event =>{
+            if(event.code === 'Space' && executed==0){
                 console.log("spacePressed");
+                executed=1;
                 openWin();
             }
         });

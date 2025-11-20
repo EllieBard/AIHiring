@@ -1,8 +1,86 @@
 <!DOCTYPE html>
 <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jersey+10&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Coda&display=swap" rel="stylesheet">
 </head>
+<style>
+    body{
+        background-color: #57639D;
+        background-image: url('23615.jpg');
+        margin:0;
+        background-repeat: no-repeat;
+        background-attachment: local;
+        background-size: cover;
+    }
+    #placeholder{
+        margin:1.5%;
+        padding: 1.5%;
+        background-color: black;
+        position:fixed;
+        top: 25%;
+        left: 45%;
+        bottom: 40%;
+        right: 5%;
+        font-family: "Jersey 10", sans-serif;
+        font-size: max(min(.5em),4.5vh);
+        color: white;
+        text-align: justify;
+    }
+    #placetext{
+        margin:0;
+        padding:0;
+    }
+</style>
 <body>
-    <h1>page2</h1>
+    <div id="bckg">
+    <div id="placeholder">
+        <p id="placetext">You&#39re invited to a job interview for the ABC corporation. You’ve prepared for weeks for this interview, pored over every Reddit forum for advice, even read through their entire website. . .</p>
+        <span></span>
+    </div>
+    </div>
     <script>
+        var i = 0;
+        var placetext = document.getElementById("placetext");
+        var placeholder = document.getElementById("placeholder");
+
+        //Move to text box function
+        function moveText(textbox) {
+            textbox.style.color = "black";
+            textbox.style.backgroundColor = "transparent";
+            textbox.style.top = "5%";
+            textbox.style.right = "10%";
+            textbox.style.left = "50%";
+            textbox.style.bottom = "50%";
+            textbox.style.padding = "1%";
+            textbox.style.fontSize = "max(min(.01em),3.5vh)";
+            textbox.style.fontFamily = "'Coda', system-ui";
+            textbox.style.textAlign = "left";
+        }
+
+
+        window.addEventListener("keyup", event =>{
+            if(event.code === 'Space' && i<9){
+                i++;
+                console.log(i);
+                switch(i){
+                    case 1: 
+                       placetext.innerText = "But when you open the interview link, there’s something unexpected waiting for you. . ."; 
+                    break;
+                    case 2: 
+                        moveText(placeholder);
+                        placetext.innerText = "Hello! Thank you for applying to ABC corporation. An A.I. program has compared your resume against thousands of other applicants’ and your resume was ranked among the highest. Congrats on making it to the first round of interviews!"; 
+                        document.body.style.backgroundImage = "url('92433.jpg')";
+                    break;
+                    case 3:
+                        placetext.innerText = "I am your A.I. interviewer. I will be conducting your interview on behalf of ABC corporation today. Any questions before we start?";
+                    break;
+                    default:
+                        placetext.innerText = "no"; 
+                    break;
+                }
+            }
+        });
     </script>
 </body>

@@ -1,24 +1,71 @@
 <!DOCTYPE html>
 <head>
-    <link rel="stylesheet" href="styleSheet.css">
+    <link href="https://fonts.googleapis.com/css2?family=Jersey+10&display=swap" rel="stylesheet">
+    <style>
+        body{
+            background-color: rgb(174, 163, 186);
+        }
+        .container{
+            display: flex;
+            justify-content: center; 
+            align-items: center;
+            text-align: center;
+            height: 100vh;
+            padding: 0;
+            margin: 0;
+        }
+        #citations{
+            text-align: left;
+            list-style-type: none; 
+        }
+        #button-div{
+            font-family: "Jersey 10", sans-serif;
+            font-size: max(min(.5em),4.5vh);
+            width:50%;
+            height:50%;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <div id = "button-div">
-            <img src="ezgif.com-animated-gif-maker.gif" alt="Press space to start">
+            Curious about A.I. in hiring? Navigate through this website using the left and right arrow keys or the space bar to learn more. <br>
+            <img src="ezgif.com-animated-gif-maker.gif" alt="Press space to start" id="startbutton">
+            <ul id="citations">
+                <li>Amitabh, Utkarsh and Ali Ansari. “Hiring with AI doesn’t have to be so inhumane.” World Economic Forum. Mar 28, 2025. https://www.weforum.org/stories/2025/03/ai-hiring-human-touch-recruitment/.</li>
+                <li>Society for Human Resource Management. “2024 Talent Trends.” SHRM. https://shrm-res.cloudinary.com/image/upload/AI/2024-Talent-Trends-Survey_Artificial-Intelligence-Findings.pdf.</li>
+                <li>Wilson, Kyra and Aylin Caliskan. “Gender, Race, and Intersectional Bias in Resume Screening via Language Model Retrieval.” The Association for the Advancement of Artificial Intelligence. 2024. https://ojs.aaai.org/index.php/AIES/article/view/31748/33915%22experiments.</li>
+                <li>EEOC. “Prohibited Employment Policies/Practices.” https://www.eeoc.gov/prohibited-employment-policiespractices.</li>
+                <li>Gorelick, Evan. “Recruiters use A.I. to scan Resumes. Applicants are trying to trick it.” NY Times, Oct 7, 2025. https://www.nytimes.com/2025/10/07/business/ai-chatbot-prompts-resumes.html. </li>
+                <li>Rocha, Natalie. “Welcome to Your Job Interview. Your Interviewer is A.I.” NY Times. Jul 7, 2025. https://www.nytimes.com/2025/07/07/technology/ai-job-interviews.html</li>
+                <li>Sun, Yujie, et al. “AI hallucination: towards a comprehensive classification of distorted information in artificial intelligence-generated content.” Sep 27, 2024. https://www.nature.com/articles/s41599-024-03811-x.</li>
+                <li>Blouin, Lou. “AI’s mysterious ‘black box’ problem, explained.” UM-Dearborn. Mar 6, 2023. https://umdearborn.edu/news/ais-mysterious-black-box-problem-explained</li>
+                <li>McMahon, Liv. “Hundreds of thousands of Grok chats exposed in Google results.” BBC. Aug 21, 2025. https://www.bbc.com/news/articles/cdrkmk00jy0o.</li>
+                <li>Bonta, Rob. “California Consumer Privacy Act.” California DOJ. Last modified Mar 13, 2024. https://oag.ca.gov/privacy/ccpa.</li>
+                <li>ADA. “Algorithms, Artificial Intelligence, and Disability Discrimination in Hiring.” ADA. May 12, 2022. https://www.ada.gov/resources/ai-guidance/.</li>
+                <li>ACLU. “Complaint of Discrimination.” https://assets.aclu.org/live/uploads/2025/03/Redacted-HireVue_Intuit-Complaint-of-Discrimination_Redacted.pdf.</li>
+            
+            
+            </ul>
         </div>
     </div>
     <script>
         let myWindow;
         var executed = 0;
+
         function openWin() {
-          myWindow = window.open("page.html","popup","width=1096,height=691");
+          myWindow = window.open("page.html","popup","width=996,height=591");
         }
         window.addEventListener("keyup", event =>{
             if(event.code === 'Space' && executed==0){
                 console.log("spacePressed");
                 executed=1;
                 openWin();
+                document.getElementById("startbutton").style.display = "none";
+                document.getElementById("button-div").innerText = "Works Cited";
+                document.getElementById("citations").innerText = "";
+                console.log(myWindow.innerWidth);
+                console.log(myWindow.innerHeight);
             }
         });
     </script>

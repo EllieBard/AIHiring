@@ -1,70 +1,222 @@
 <!DOCTYPE html>
 <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jersey+10&display=swap" rel="stylesheet">
-    <style>
-        body{
-            background-color: rgb(174, 163, 186);
-        }
-        .container{
-            display: flex;
-            justify-content: center; 
-            align-items: center;
-            text-align: center;
-            height: 100vh;
-            padding: 0;
-            margin: 0;
-        }
-        #citations{
-            text-align: left;
-            list-style-type: none; 
-        }
-        #button-div{
-            font-family: "Jersey 10", sans-serif;
-            font-size: max(min(.5em),4.5vh);
-            width:50%;
-            height:50%;
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Aldrich&display=swap" rel="stylesheet">
 </head>
+<style>
+    body{
+        background-color: #57639D;
+        background-image: url('23615.jpg');
+        margin:0;
+        background-repeat: no-repeat;
+        background-attachment: local;
+        background-size: cover;
+    }
+    #placeholder{
+        margin:1.5%;
+        padding: 1.5%;
+        background-color: black;
+        position:fixed;
+        top: 25%;
+        left: 45%;
+        bottom: 40%;
+        right: 5%;
+        font-family: "Jersey 10", sans-serif;
+        font-size: max(min(.5em),4.5vh);
+        color: white;
+        text-align: justify;
+        vertical-align: middle;
+    }
+    #placetext{
+        margin:0;
+        padding:0;
+        vertical-align: middle;
+    }
+    #userplace{
+        margin:1.5%;
+        padding: .3%;
+        position:fixed;
+        font-size: max(min(.5em),4.5vh);
+        top: 5%;
+        left: 50%;
+        bottom: 80%;
+        right: 10%;
+        vertical-align: middle;
+        font-family: "Jersey 10", sans-serif;
+    }
+    #titleplace{
+        position:fixed;
+        font-size: max(min(.5em),4.5vh);
+        display: none;
+        top: 13%;
+        right: 5%;
+        left: 51.5%;
+        bottom: 90%;
+        padding: 1%;
+        font-family: Arial, system-ui;
+        color: black;
+        font-weight: bold;
+    }
+
+</style>
 <body>
-    <div class="container">
-        <div id = "button-div">
-            Curious about A.I. in hiring? Navigate through this website using the left and right arrow keys or the space bar to learn more. <br>
-            <img src="ezgif.com-animated-gif-maker.gif" alt="Press space to start" id="startbutton">
-            <ul id="citations">
-                <li>Amitabh, Utkarsh and Ali Ansari. “Hiring with AI doesn’t have to be so inhumane.” World Economic Forum. Mar 28, 2025. https://www.weforum.org/stories/2025/03/ai-hiring-human-touch-recruitment/.</li>
-                <li>Society for Human Resource Management. “2024 Talent Trends.” SHRM. https://shrm-res.cloudinary.com/image/upload/AI/2024-Talent-Trends-Survey_Artificial-Intelligence-Findings.pdf.</li>
-                <li>Wilson, Kyra and Aylin Caliskan. “Gender, Race, and Intersectional Bias in Resume Screening via Language Model Retrieval.” The Association for the Advancement of Artificial Intelligence. 2024. https://ojs.aaai.org/index.php/AIES/article/view/31748/33915%22experiments.</li>
-                <li>EEOC. “Prohibited Employment Policies/Practices.” https://www.eeoc.gov/prohibited-employment-policiespractices.</li>
-                <li>Gorelick, Evan. “Recruiters use A.I. to scan Resumes. Applicants are trying to trick it.” NY Times, Oct 7, 2025. https://www.nytimes.com/2025/10/07/business/ai-chatbot-prompts-resumes.html. </li>
-                <li>Rocha, Natalie. “Welcome to Your Job Interview. Your Interviewer is A.I.” NY Times. Jul 7, 2025. https://www.nytimes.com/2025/07/07/technology/ai-job-interviews.html</li>
-                <li>Sun, Yujie, et al. “AI hallucination: towards a comprehensive classification of distorted information in artificial intelligence-generated content.” Sep 27, 2024. https://www.nature.com/articles/s41599-024-03811-x.</li>
-                <li>Blouin, Lou. “AI’s mysterious ‘black box’ problem, explained.” UM-Dearborn. Mar 6, 2023. https://umdearborn.edu/news/ais-mysterious-black-box-problem-explained</li>
-                <li>McMahon, Liv. “Hundreds of thousands of Grok chats exposed in Google results.” BBC. Aug 21, 2025. https://www.bbc.com/news/articles/cdrkmk00jy0o.</li>
-                <li>Bonta, Rob. “California Consumer Privacy Act.” California DOJ. Last modified Mar 13, 2024. https://oag.ca.gov/privacy/ccpa.</li>
-                <li>ADA. “Algorithms, Artificial Intelligence, and Disability Discrimination in Hiring.” ADA. May 12, 2022. https://www.ada.gov/resources/ai-guidance/.</li>
-                <li>ACLU. “Complaint of Discrimination.” https://assets.aclu.org/live/uploads/2025/03/Redacted-HireVue_Intuit-Complaint-of-Discrimination_Redacted.pdf.</li>
-            
-            
-            </ul>
-        </div>
+    <div id="userplace">
+    </div>
+    <div id="titleplace">
+    </div>
+    <div id="placeholder">
+        <p id="placetext">You're invited to a job interview for the ABC corporation. You've prepared for weeks for this interview, pored over every Reddit forum for advice, even read through their entire website. . .</p>
     </div>
     <script>
-        let myWindow;
-        var executed = 0;
+        var i = 0;
+        var placetext = document.getElementById("placetext");
+        var placeholder = document.getElementById("placeholder");
+        var userplace = document.getElementById("userplace");
+        var titleplace = document.getElementById("titleplace");
 
-        function openWin() {
-          myWindow = window.open("page.html","popup","width=996,height=591");
+        //Move to text box function
+        function moveToChat(textbox) {
+            textbox.style.color = "black";
+            textbox.style.backgroundColor = "transparent";
+            textbox.style.top = "5%";
+            textbox.style.right = "10%";
+            textbox.style.left = "50%";
+            textbox.style.bottom = "50%";
+            textbox.style.padding = "1%";
+            textbox.style.fontSize = "max(min(.01em),3.5vh)";
+            textbox.style.fontFamily = "'Aldrich', system-ui";
+            textbox.style.textAlign = "left";
         }
+
+        //Move to black box function
+        function moveToBlack(textbox) {
+            textbox.style.color = "white";
+            textbox.style.backgroundColor = "black";
+            textbox.style.top = "25%";
+            textbox.style.right = "5%";
+            textbox.style.left = "45%";
+            textbox.style.bottom = "40%";
+            textbox.style.padding = "1.5%";
+            textbox.style.fontSize = "max(min(.5em),4.5vh)";
+            textbox.style.fontFamily = "'Jersey 10', sans-serif";
+            textbox.style.textAlign = "justify";
+        }    
+
+        //Move to double chat
+        function showGray(graytextbox, textbox){
+            graytextbox.style.display = "inline";
+            textbox.style.top = "26%";
+            textbox.style.right = "10%";
+            textbox.style.left = "50%";
+            textbox.style.bottom = "40%";
+            textbox.style.padding = "1%";
+            textbox.style.fontSize = "max(min(.01em),3.5vh)";
+            textbox.style.fontFamily = "'Aldrich', system-ui";
+            textbox.style.textAlign = "left";
+        }
+
+        //Move to google
+        function showWeb(textbox){
+            textbox.style.top = "17%";
+            textbox.style.right = "5%";
+            textbox.style.left = "50%";
+            textbox.style.bottom = "0%";
+            textbox.style.padding = "1%";
+            textbox.style.fontFamily = "Arial, system-ui";
+            textbox.style.color = "black";
+            textbox.style.fontSize = "max(min(.01em),3.5vh)";
+            textbox.style.backgroundColor = "transparent";
+        }
+
+        //Move to other screen
+        function changeScreen(i){
+            switch(i){
+                    case 0:
+                        placetext.innerText = "You're invited to a job interview for the ABC corporation. You've prepared for weeks for this interview, pored over every Reddit forum for advice, even read through their entire website. . .";
+                    break;
+                    case 1: 
+                        document.body.style.backgroundImage = "url('23615.jpg')";
+                        moveToBlack(placeholder);
+                        placetext.innerText = "But when you open the interview link, there's something unexpected waiting for you. . ."; 
+                    break;
+                    case 2: 
+                        moveToChat(placeholder);
+                        placetext.innerText = "Hello! Thank you for applying to ABC corporation. An A.I. program has compared your resume against thousands of other applicants' and your resume was ranked among the highest. Congrats on making it to the first round of interviews!"; 
+                        document.body.style.backgroundImage = "url('IMG_2345.gif')";
+                    break;
+                    case 3:
+                        moveToChat(placeholder);
+                        userplace.style.display = "none";
+                        placetext.innerText = "I am your A.I. interviewer. I will be conducting your interview on behalf of ABC corporation today. Any questions before we start?";
+                        document.body.style.backgroundImage = "url('IMG_2345.gif')";
+                    break;
+                    case 4:
+                        document.body.style.backgroundImage = "url('IMG_2344.gif')";
+                        showGray(userplace,placeholder);
+                        placetext.innerText = "I am an artificially intelligent interviewer. I will ask you questions, record your answers, and then analyze the recordings. I'll then send an overview of our conversation to the hiring committee, along with an evaluation of your performance.";
+                        userplace.innerText = "What are you?";
+                    break;
+                    case 5:
+                        placetext.innerText = "I'm here to help make the interview process go faster and smoother since ABC corporation is getting lots of applications recently. I'm efficient and cost-effective and I can free human interviewers up to focus on other things.";
+                        userplace.innerText = "Why are you here?";
+                    break;
+                    case 6:
+                        placetext.innerText = "That's a great question! I can't tell you the exact criteria, but I'll be analyzing both what you say and your non-verbal cues to grade your communication skills and fit for the job.";
+                        userplace.innerText = "How will you be evaluating my answers?";
+                    break;
+                    case 7:
+                        placetext.innerText = "Just act like you're talking to a human. Maintain eye contact with the camera and keep your tone friendly. Make sure to use lots of key words from the job description. I'll be on the look out for that. You can also practice by holding a mock interview with a friend.";
+                        userplace.innerText = "How can I do well?";
+                    break;
+                    case 8:
+                        document.body.style.backgroundImage = "url('IMG_2344.gif')";
+                        showGray(userplace,placeholder);
+                        placetext.innerText = ". . .";
+                        titleplace.style.display = "none";
+                        userplace.innerText = "Uhh...one second...";
+                    break;
+                    case 9:
+                        document.body.style.backgroundImage = "url('47853.jpg')";
+                        userplace.style.display = "none";
+                        titleplace.style.display = "inline";
+                        showWeb(placeholder);
+                        placetext.innerText = "A lot of the data used to train A.I. is biased, and A.I. used in hiring can also exhibit these biases. For instance, a study from the University of West Virginia found that A.I. always chose resumes with stereotypical white and male names over resumes with black and male sounding names, regardless of the position they were applying for. Although many companies claim that relying on machines is more fair and equitable than using human judgement, in reality this system can further disadvantage minorities.";
+                        titleplace.innerText = "A.I. Bias and Resumes";
+                    break;
+                    case 10:
+                        placetext.innerText = "A.I. relies on averages in data sets when evaluating applicants' audio or visual interview performance. This can be a significant disadvantage for disabled applicants, who may perform differently from those averages or may need specific accommodations that only a human being can offer. This also affects people with accents or even to those who have a temporary condition affecting their voice or behavior, such as a runny nose.";
+                        titleplace.innerText = "A.I. Bias and Interviews";
+                    break;
+                    case 11:
+                        placetext.innerText = "A.I. software used for hiring purposes oftentimes has access to applicants’ highly sensitive personal information, such as addresses, phone numbers, and emails, as well as voice and facial information from recordings. This material can then become part of the training material and can potentially be leaked. When applicants are not informed beforehand about how and when A.I. will be used, they are unable to make informed decisions about how their data will be accessed and stored.";
+                        titleplace.innerText = "Data Privacy";
+                        titleplace.style.display = "inline";
+                        showWeb(placeholder);
+                        document.body.style.backgroundImage = "url('47853.jpg')";
+                    break;
+                    case 12:
+                        titleplace.style.display = "none";
+                        placetext.innerText = "Now that you have learned more, the choice is up to you... Do you want to continue with the interview?";
+                        moveToBlack(placeholder);
+                        document.body.style.backgroundImage = "url('23615.jpg')";
+                    break;
+                    default:
+                        placetext.innerText = "Seems like an error has occured."; 
+                    break;
+            }
+        }
+
+
         window.addEventListener("keyup", event =>{
-            if(event.code === 'Space' && executed==0){
-                console.log("spacePressed");
-                executed=1;
-                openWin();
-                document.getElementById("startbutton").style.display = "none";
-                document.getElementById("button-div").innerText = "Works Cited";
-                console.log(myWindow.innerWidth);
-                console.log(myWindow.innerHeight);
+            if((event.code === 'Space' || event.code === 'ArrowRight')&& i<12){
+                i++;
+                changeScreen(i);
+            }
+            else if(event.code === 'ArrowLeft' && i>0){
+                i--;
+                changeScreen(i);
             }
         });
     </script>

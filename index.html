@@ -16,7 +16,8 @@
         }
         #citations{
             text-align: left;
-            list-style-type: none; 
+            list-style-type: circle; 
+            font-size: max(min(.5em),3.5vh);
         }
         #button-div{
             font-family: "Jersey 10", sans-serif;
@@ -29,8 +30,9 @@
 <body>
     <div class="container">
         <div id = "button-div">
-            Curious about A.I. in hiring? Navigate through this website using the left and right arrow keys or the space bar to learn more. <br>
+            <p id="intro">Curious about A.I. in hiring? Navigate through this website using the left and right arrow keys or the space bar to learn more. <br></p>
             <img src="ezgif.com-animated-gif-maker.gif" alt="Press space to start" id="startbutton">
+            <p>Works Cited</p>
             <ul id="citations">
                 <li>Amitabh, Utkarsh and Ali Ansari. “Hiring with AI doesn’t have to be so inhumane.” World Economic Forum. Mar 28, 2025. https://www.weforum.org/stories/2025/03/ai-hiring-human-touch-recruitment/.</li>
                 <li>Society for Human Resource Management. “2024 Talent Trends.” SHRM. https://shrm-res.cloudinary.com/image/upload/AI/2024-Talent-Trends-Survey_Artificial-Intelligence-Findings.pdf.</li>
@@ -62,7 +64,7 @@
                 executed=1;
                 openWin();
                 document.getElementById("startbutton").style.display = "none";
-                document.getElementById("button-div").innerText = "Works Cited";
+                document.getElementById("intro").style.display = "none";
                 console.log(myWindow.innerWidth);
                 console.log(myWindow.innerHeight);
             }

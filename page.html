@@ -119,6 +119,7 @@
 
         //Move to google
         function showWeb(textbox){
+            textbox.style.textAlign = "left";
             textbox.style.top = "17%";
             textbox.style.right = "5%";
             textbox.style.left = "50%";
@@ -200,6 +201,10 @@
                         titleplace.style.display = "none";
                         placetext.innerText = "Now that you have learned more, the choice is up to you... Do you want to continue with the interview?";
                         moveToBlack(placeholder);
+                        document.body.style.backgroundImage = "url('IMG_2355.GIF')";
+                    break;
+                    case 13:
+                        placetext.innerText = "Thanks for playing! Check out the sources in the works cited to learn more.";
                         document.body.style.backgroundImage = "url('23615.jpg')";
                     break;
                     default:
@@ -210,7 +215,7 @@
 
 
         window.addEventListener("keyup", event =>{
-            if((event.code === 'Space' || event.code === 'ArrowRight')&& i<12){
+            if((event.code === 'Space' || event.code === 'ArrowRight')&& i<13){
                 i++;
                 changeScreen(i);
             }
@@ -221,4 +226,3 @@
         });
     </script>
 </body>
-
